@@ -10,8 +10,7 @@ myServer.playerJoin(myMap, player1)
 myServer.playerJoin(myMap, player2)
 
 print("test")
-player1.setPosition((50,50))
+player1.setPosition((39,39))
 print(player1.getPosition())
-player1.setSize((10,10))
+player1.setSize((20,20))
 print(player1.objectHitsPlayer((50,50)))
-#
