@@ -12,9 +12,6 @@ myServer.playerJoin(myMap, player2)
 print("test")
 player1.setPosition((50,50))
 print(player1.getPosition())
-#player1.setSize((10,10))
-#if player1.objectHitsPlayer((50,50)):
-#	print("True")
-#else:
-#	print("False")
+player1.setSize((10,10))
+print(player1.objectHitsPlayer((50,50)))
 #
