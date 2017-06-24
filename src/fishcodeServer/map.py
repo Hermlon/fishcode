@@ -6,12 +6,10 @@ class Map(object):
 		self.players = {}
 		
 	def addPlayer(self, player, pos=None):
-		player.setMap(self)
 		if not pos:
 			pos = self.randPos(player)
+		player.setMap(self)
 		player.setPosition(pos)
-		print(pos)
-		self.players[player] = pos
 		
 	def removePlayer(self, player):
 		self.players.setMap(None)
@@ -20,7 +18,8 @@ class Map(object):
 	def updatePosition(self, player, position):
 		self.players[player] = position
 		
-	def getPostion(self, player):
+		
+	def getPosition(self, player):
 		return self.players[player]
 		
 	def updateShot(self):
