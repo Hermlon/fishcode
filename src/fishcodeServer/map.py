@@ -3,7 +3,15 @@ class Map(object):
 	
 	def __init__(self, area):
 		self.area = area
+		self.players = []
 		
+	def addPlayer(self, player):
+		self.player.setMap(self)
+		self.players.append(player)
+		
+	def removePlayer(self, player):
+		self.players.setMap(None)
+		self.players.remove(player)
 		
 	def updatePosition(self, player, position):
 		self.players[player] = position
@@ -11,5 +19,5 @@ class Map(object):
 	def getPostion(self, player):
 		return self.players[player]
 		
-	def updateShot(self, shot):
-		
+	def updateShot(self):
+		pass
