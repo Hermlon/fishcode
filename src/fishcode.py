@@ -1,6 +1,6 @@
 #!/usr/bin/env/ python3
 from fishcodeServer import Server, Player
-
+#from threading import Thread
 myServer = Server()
 myServer.newMap((400, 300))
 myMap = myServer.getMaps()[0]

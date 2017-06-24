@@ -18,3 +18,7 @@ class Server(object):
 		
 	def playerLeave(self, player):
 		player.getMap.removePlayer()
+
+	def tick(self):
+		#run player update method
+		#
