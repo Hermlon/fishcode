@@ -54,3 +54,15 @@ class Player(object):
 		
 	def getMap(self):
 		return self.myMap
+		
+	def getSize(self):
+		return self.size
+		
+	def setSize(self, size):
+		self.size = size
+		
+	def objectHitsPlayer(self, objectPos):
+		if((objectPos[0] >= self.getPosition()[0] - self.getSize()[0] / 2) and (objectPos[0] <= self.getPosition[0] + self.getSize()[0] / 2)
+		and (objectPos[1] >= self.getPosition()[1] - self.getSize()[1] / 2) and (objectPos[1] <= self.getPosition[1] + self.getSize()[1] / 2)):
+			return True
+		return False
