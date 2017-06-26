@@ -3,6 +3,8 @@ Fragen:
     -Eine Bewegungs- und eine Schussrichtung?
     -Geschwindigkeit durch Steuerungsscript steuerbar (stufenlos? oder normal und sprinten?)
     -Geschwindigkeit ausschließlich von Energie abhängig (Je mehr Energie desto langsamer)[Würde ich bevorzugen]
+    - konstante Geschwindigkeit
+    - Blickfeld -> Spielfigur muss sich drehen um alles sehen zu können?
 
 Features:
     -Steuerungsscript kann Pixel der Spielfigur selbst setzen, (transparenter Hintergrund)
