@@ -1,9 +1,9 @@
 Fragen:
-    -Bewegung immer in Drehrichtung?
-    -Eine Bewegungs- und eine Schussrichtung?
+    -Bewegung immer in Drehrichtung? JA
+    -Eine Bewegungs- und eine Schussrichtung? JA
     -Geschwindigkeit durch Steuerungsscript steuerbar (stufenlos? oder normal und sprinten?)
-    -Geschwindigkeit ausschließlich von Energie abhängig (Je mehr Energie desto langsamer)[Würde ich bevorzugen]
-    - konstante Geschwindigkeit
+    -Geschwindigkeit ausschließlich von Energie abhängig (Je mehr Energie desto langsamer)[Würde ich bevorzugen] JA
+    - konstante Geschwindigkeit NEIN
     - Blickfeld -> Spielfigur muss sich drehen um alles sehen zu können?
 
 Features:
