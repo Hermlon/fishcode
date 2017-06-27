@@ -1,4 +1,6 @@
 #!/usr/bin/env/ python3
+import random
+
 class Map(object):
 
 	def __init__(self, area):
@@ -26,4 +28,7 @@ class Map(object):
 		pass
 
 	def randPos(self, player):
-		return (20, 20)
+		xPos = random.randint(20, 380)
+		yPos = random.randint(20, 280)
+		
+		return(xPos, yPos)
