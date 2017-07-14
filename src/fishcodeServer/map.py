@@ -5,13 +5,18 @@ class Map(object):
 
 	def __init__(self, area):
 		self.area = area
-		self.players = {}
+		self.entities = []
+		self.maptime = 0
+
+	def tick():
+		self.maptime ++
 
 	def addPlayer(self, player, pos=None):
 		if not pos:
 			pos = self.randPos(player)
 		player.setMap(self)
 		player.setPosition(pos)
+		self.entities.append(player)
 
 	def removePlayer(self, player):
 		self.players.setMap(None)
@@ -27,8 +32,9 @@ class Map(object):
 	def updateShot(self):
 		pass
 
-	def randPos(self, player):
-		xPos = random.randint(20, 380)
-		yPos = random.randint(20, 280)
-		
-		return(xPos, yPos)
+	def randPos(self, entity):
+		halfx = entity.getSize[0] / 2
+		halfy = entity.getSize[1] / 2
+		xPos = random.randint(halfx, self.area.getSize()[0] - halfx)
+		yPos = random.randint(halfy, self.area.getSize()[1] - halfy)
+		return (xPos, yPos)

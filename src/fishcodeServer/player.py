@@ -4,7 +4,7 @@ class Player(object):
 	def __init__(self, name):
 		self.name = name
 		self.shots = []
-		self.img = generateDefaultImg()
+		self.img = self.generateDefaultImg()
 
 	def setPosition(self, position):
 		self.myMap.updatePosition(self, position)
