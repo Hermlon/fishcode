@@ -15,5 +15,4 @@ print(player1.getPosition())
 player1.setSize((20,20))
 print(player1.objectHitsPlayer((50,50)))"""
 
-myEntity = Entity((10,10))
-myEntity.getMap()
+myPlayer = Player("test")

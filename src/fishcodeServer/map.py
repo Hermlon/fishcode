@@ -9,7 +9,7 @@ class Map(object):
 		self.maptime = 0
 
 	def tick():
-		self.maptime ++
+		self.maptime += 1
 
 	def addPlayer(self, player, pos=None):
 		if not pos:

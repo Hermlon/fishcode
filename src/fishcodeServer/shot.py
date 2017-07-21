@@ -1,20 +1,13 @@
 #!/usr/bin/env/ python3
-class Shot(object):
-	
+import entity
+
+class Shot(Entity):
+
+	shotsize = (2, 5)
+
 	def __init__(self, player):
+		super().__init__(shotsize)
 		self.player = player
-		
-	def setPosition(self, position):
-		self.position = position
-		
-	def getPostion(self):
-		return self.position
-		
-	def setRotation(self, rotation):
-		self.rotation = rotation
-		
-	def getRotation(self):
-		return rotation
-		
+
 	def getPlayer(self):
 		return self.player

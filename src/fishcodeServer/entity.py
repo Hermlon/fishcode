@@ -1,11 +1,12 @@
 #!/usr/bin/env/ python3
-import location
+import location, texture
 
 class Entity(object):
 	def __init__(self, size):
 		self.myMap = None
 		self.location = Location()
 		self.size = size
+		self.texture = Texture(self.getSize())
 
 	def setLocation(self, location):
 		self.location = location
@@ -17,7 +18,7 @@ class Entity(object):
 		self.location.setPosition(position)
 
 	def getPosition(self):
-		return self.location.getPosition
+		return self.location.getPosition()
 
 	def setRotation(self, rotation):
 		self.location.setRotation(rotation)
@@ -43,6 +44,12 @@ class Entity(object):
 
 	def setSize(self, size):
 		self.size = size
+
+	def getTexture(self):
+		return self.texture
+
+	def setTexture(self, texture):
+		self.texture = texture
 
 	def objectHitsPlayer(self, objectPos):
 		if((objectPos[0] >= self.getPosition()[0] - self.getSize()[0] / 2)
