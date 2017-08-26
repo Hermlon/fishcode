@@ -1,5 +1,5 @@
 #!/usr/bin/env/ python3
-import random
+import random, json
 
 class Map(object):
 
@@ -38,3 +38,14 @@ class Map(object):
 		xPos = random.randint(halfx, self.area[0] - halfx)
 		yPos = random.randint(halfy, self.area[1] - halfy)
 		return (xPos, yPos)
+		
+	def toJSON(self):
+		#import pdb; pdb.set_trace()
+		return json.dumps(self.toSerializible())
+		
+	def toSerializible(self):
+		def doSerializible(s):
+			return s.toSerializible()
+		e = list(map(doSerializible, self.entities))
+		return {"area":self.area, "entities":e}
+		
