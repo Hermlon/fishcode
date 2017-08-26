@@ -11,8 +11,8 @@ class Shot(Entity):
 
 	def getPlayer(self):
 		return self.player
-		
+
 	def toSerializible(self):
 		d = super().toSerializible()
-		return d.update({"shotsize":shotsize})
-
+		d.update({"shotsize":shotsize})
+		return d

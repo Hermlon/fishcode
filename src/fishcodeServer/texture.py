@@ -27,5 +27,7 @@ class Texture(object):
 	def render(self):
 		return self.pixels
 
+	#xxx tuple is not a valid key for json, change to 2 dim array
 	def toSerializible(self):
-		return {"size":self.size, "pixels":self.pixels}
+		#return {"size":self.size, "pixels":self.pixels}
+		return {"size":self.size}
