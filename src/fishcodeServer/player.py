@@ -1,6 +1,6 @@
 #!/usr/bin/env/ python3
 from fishcodeServer.entity import Entity
-from fishcodeServer.testcode import TestCode
+from fishcodeServer.code import Code
 
 class Player(Entity):
 
@@ -9,10 +9,10 @@ class Player(Entity):
 		self.name = name
 		self.shots = []
 		self.texture.generateDefaultImg()
-		self.code = TestCode()
+		self.code = "return PlayerDecison(4, False)"
 
 	def update(self):
-		decision = self.getCode().update(self.name, self.getMap().toJSON())
+		decision = Code.update(self.code, self.name, self.getMap().toJSON())
 		print(decision.getRotation())
 		print(decision.isShoot())
 
@@ -39,9 +39,8 @@ class Player(Entity):
 	def shootLoseEnergy(self):
 		self.setEnergy(self.getEnergy - 1)
 
-	def setCode(self, code, classname):
-		exec(code)
-		self.code = eval(classname + "()")
+	def setCode(self, code):
+		self.code = code
 
 	def getCode(self):
 		return self.code
