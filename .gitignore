@@ -90,6 +90,7 @@ bin/
 include/
 share/
 lib/
+local/
 
 # Spyder project settings
 .spyderproject
