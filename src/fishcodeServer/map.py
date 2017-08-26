@@ -8,8 +8,9 @@ class Map(object):
 		self.entities = []
 		self.maptime = 0
 
-	def tick():
+	def tick(self):
 		self.maptime += 1
+		print(self.maptime)
 
 	def addPlayer(self, player, pos=None):
 		if not pos:
@@ -25,7 +26,6 @@ class Map(object):
 	def updatePosition(self, player, position):
 		self.players[player] = position
 
-
 	def getPosition(self, player):
 		return self.players[player]
 
@@ -33,8 +33,8 @@ class Map(object):
 		pass
 
 	def randPos(self, entity):
-		halfx = entity.getSize[0] / 2
-		halfy = entity.getSize[1] / 2
-		xPos = random.randint(halfx, self.area.getSize()[0] - halfx)
-		yPos = random.randint(halfy, self.area.getSize()[1] - halfy)
+		halfx = entity.getSize()[0] / 2
+		halfy = entity.getSize()[1] / 2
+		xPos = random.randint(halfx, self.area[0] - halfx)
+		yPos = random.randint(halfy, self.area[1] - halfy)
 		return (xPos, yPos)

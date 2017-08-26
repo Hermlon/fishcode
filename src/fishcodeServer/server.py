@@ -1,5 +1,6 @@
 #!/usr/bin/env/ python3
 from fishcodeServer.map import Map
+import time
 
 class Server(object):
 
@@ -20,5 +21,10 @@ class Server(object):
 		player.getMap.removePlayer()
 
 	def tick(self):
-		#run player update method
-		pass
+		for mymap in self.maps:
+			mymap.tick()
+
+	def start(self):
+		while True:
+			self.tick()
+			time.sleep(1)
