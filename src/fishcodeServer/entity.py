@@ -59,6 +59,6 @@ class Entity(object):
 		and (objectPos[1] <= self.getPosition()[1] + self.getSize()[1] / 2)):
 			return True
 		return False
-		
+
 	def toSerializible(self):
-		return {"location":self.location.toSerializible(), "map":self.myMap.toSerializible(), "size":size, "texture":self.texture.toSerializible()}
+		return {"location":self.location.toSerializible(), "size":self.size, "texture":self.texture.toSerializible()}

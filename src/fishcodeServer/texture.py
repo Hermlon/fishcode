@@ -26,6 +26,6 @@ class Texture(object):
 
 	def render(self):
 		return self.pixels
-	
+
 	def toSerializible(self):
-		return {"size":size, "pixels":pixels}
+		return {"size":self.size, "pixels":self.pixels}

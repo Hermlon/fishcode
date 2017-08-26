@@ -40,10 +40,10 @@ class Player(Entity):
 
 	def getName(self):
 		return self.name
-		
+
 	def toSerializible(self):
 		d = super().toSerializible()
 		def doSerializible(s):
 			return s.toSerializible()
-		shots = list(map(doSerializible, self.shots))	
-		return d.update({"name":name, "shots":shots})
+		shots = list(map(doSerializible, self.shots))
+		return d.update({"name":self.name, "shots":self.shots})
