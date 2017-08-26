@@ -1,8 +1,9 @@
 #!/usr/bin/env/ python3
 from fishcodeServer.location import Location
 from fishcodeServer.texture import Texture
+from fishcodeServer.serializable_mixin import SerializableMixin
 
-class Entity(object):
+class Entity(SerializableMixin):
 	def __init__(self, size):
 		self.myMap = None
 		self.location = Location()

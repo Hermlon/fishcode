@@ -40,7 +40,7 @@ class Map(object):
 		return (xPos, yPos)
 
 	def toJSON(self):
-		import pdb; pdb.set_trace()
+		#import pdb; pdb.set_trace()
 		return json.dumps(self.toSerializible())
 
 	def toSerializible(self):
