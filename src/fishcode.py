@@ -1,5 +1,6 @@
 #!/usr/bin/env/ python3
-from fishcodeServer import Server, Player, Entity
+from fishcodeServer.server import Server
+from fishcodeServer.player import Player
 #from threading import Thread
 """myServer = Server()
 myServer.newMap((400, 300))
@@ -15,4 +16,4 @@ print(player1.getPosition())
 player1.setSize((20,20))
 print(player1.objectHitsPlayer((50,50)))"""
 
-myPlayer = Player("test")
+myPlayer = Player("test", (50,50))

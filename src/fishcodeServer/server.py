@@ -1,5 +1,5 @@
 #!/usr/bin/env/ python3
-from fishcodeServer import Map
+from fishcodeServer.map import Map
 
 class Server(object):
 

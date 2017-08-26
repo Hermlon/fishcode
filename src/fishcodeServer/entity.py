@@ -1,5 +1,6 @@
 #!/usr/bin/env/ python3
-import location, texture
+from fishcodeServer.location import Location
+from fishcodeServer.texture import Texture
 
 class Entity(object):
 	def __init__(self, size):

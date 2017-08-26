@@ -1,12 +1,13 @@
 #!/usr/bin/env/ python3
-import entity
+from fishcodeServer.entity import Entity
 
 class Player(Entity):
 
-	def __init__(self, name):
+	def __init__(self, name, size):
+		super().__init__(size)
 		self.name = name
 		self.shots = []
-		super().texture.generateDefaultImg()
+		self.texture.generateDefaultImg()
 
 	def setEnergy(self, energy):
 		self.energy = energy
