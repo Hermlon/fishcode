@@ -11,6 +11,8 @@ class Map(object):
 	def tick(self):
 		self.maptime += 1
 		print(self.maptime)
+		for entity in self.entities:
+			entity.update()
 
 	def addPlayer(self, player, pos=None):
 		if not pos:

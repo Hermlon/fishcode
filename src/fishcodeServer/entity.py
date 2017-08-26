@@ -10,6 +10,9 @@ class Entity(SerializableMixin):
 		self.size = size
 		self.texture = Texture(self.getSize())
 
+	def update(self):
+		pass
+
 	def setLocation(self, location):
 		self.location = location
 
