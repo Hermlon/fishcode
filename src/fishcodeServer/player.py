@@ -39,8 +39,9 @@ class Player(Entity):
 	def shootLoseEnergy(self):
 		self.setEnergy(self.getEnergy - 1)
 
-	def setCode(self, code):
-		self.code = code
+	def setCode(self, code, classname):
+		exec(code)
+		self.code = eval(classname + "()")
 
 	def getCode(self):
 		return self.code

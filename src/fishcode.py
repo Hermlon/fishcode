@@ -9,6 +9,23 @@ player1 = Player("player1", (50,50))
 player2 = Player("player2", (50,50))
 myServer.playerJoin(myMap, player1)
 myServer.playerJoin(myMap, player2)
+
+
+
+player1.setCode("""
+from fishcodeServer.location import Location
+from fishcodeServer.playerdecision import PlayerDecision
+from fishcodeServer.code import Code
+
+class MyCode(Code):
+
+    def update(self, playername, data):
+        rotation = 3
+        import pdb; pdb.set_trace()
+        shoot = True
+        return PlayerDecision(rotation, shoot)
+        """, "MyCode")
+
 myServer.start()
 #print(myMap.toJSON())
 
