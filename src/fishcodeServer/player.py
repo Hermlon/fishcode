@@ -12,9 +12,10 @@ class Player(Entity):
 		self.code = "return PlayerDecison(4, False)"
 
 	def update(self):
-		decision = Code.update(self.code, self.name, self.getMap().toJSON())
-		print(decision.getRotation())
-		print(decision.isShoot())
+		#decision = Code.update(self.code, self.name, self.getMap().toJSON())
+		#print(decision.getRotation())
+		#print(decision.isShoot())
+		super().update()
 
 	def setEnergy(self, energy):
 		self.energy = energy

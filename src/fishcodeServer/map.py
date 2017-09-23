@@ -18,7 +18,7 @@ class Map(object):
 		if not pos:
 			pos = self.randPos(player)
 		player.setMap(self)
-		player.setPosition(pos)
+		player.getLocation().setPosition(pos)
 		self.entities.append(player)
 
 	def removePlayer(self, player):
@@ -35,10 +35,9 @@ class Map(object):
 		pass
 
 	def randPos(self, entity):
-		halfx = entity.getSize()[0] / 2
-		halfy = entity.getSize()[1] / 2
-		xPos = random.randint(halfx, self.area[0] - halfx)
-		yPos = random.randint(halfy, self.area[1] - halfy)
+		half = entity.getSize() / 2
+		xPos = random.randint(half, self.area[0] - half)
+		yPos = random.randint(half, self.area[1] - half)
 		return (xPos, yPos)
 
 	def toJSON(self):
