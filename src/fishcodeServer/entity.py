@@ -2,13 +2,14 @@
 from fishcodeServer.location import Location
 from fishcodeServer.texture import Texture
 from fishcodeServer.serializable_mixin import SerializableMixin
+import math
 
 class Entity(SerializableMixin):
 	def __init__(self, size):
 		self.myMap = None
 		self.location = Location()
 		self.size = size
-		self.texture = Texture(self.getSize())
+		#self.texture = Texture(self.getSize())
 
 	def update(self):
 		pass
@@ -56,13 +57,13 @@ class Entity(SerializableMixin):
 	def setTexture(self, texture):
 		self.texture = texture
 
-	def objectHitsPlayer(self, objectPos):
-		if((objectPos[0] >= self.getPosition()[0] - self.getSize()[0] / 2)
-		and (objectPos[0] <= self.getPosition()[0] + self.getSize()[0] / 2)
-		and (objectPos[1] >= self.getPosition()[1] - self.getSize()[1] / 2)
-		and (objectPos[1] <= self.getPosition()[1] + self.getSize()[1] / 2)):
-			return True
-		return False
+	def hitsEntity(self, otherEntity):
+		radiusSum = self.getSize() + otherEntity.getSize()
+		deltax = abs(self.getLocation().getX() - otherEntity.getLocation().getX())
+		deltay = abs(self.getLocation().getY() - otherEntity.getLocation().getY())
+		distance = math.sqrt(deltax ** 2 + deltay ** 2)
+		return distance <= radiusSum
 
 	def toSerializible(self):
-		return {"location":self.location.toSerializible(), "size":self.size, "texture":self.texture.toSerializible()}
+		#return {"location":self.location.toSerializible(), "size":self.size, "texture":self.texture.toSerializible()}
+		return {"location":self.location.toSerializible(), "size":self.size}

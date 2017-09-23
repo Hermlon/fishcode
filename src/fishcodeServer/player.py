@@ -8,7 +8,7 @@ class Player(Entity):
 		super().__init__(size)
 		self.name = name
 		self.shots = []
-		self.texture.generateDefaultImg()
+		#self.texture.generateDefaultImg()
 		self.code = "return PlayerDecison(4, False)"
 
 	def update(self):
