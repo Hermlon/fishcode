@@ -13,6 +13,7 @@ class Map(object):
 		print(self.maptime)
 		for entity in self.entities:
 			entity.update()
+			self.updatePosition(entity)
 
 	def addPlayer(self, player, pos=None):
 		if not pos:
@@ -25,8 +26,17 @@ class Map(object):
 		self.players.setMap(None)
 		del self.players[player]
 
-	def updatePosition(self, player, position):
-		self.players[player] = position
+	def updatePosition(self, entity):
+		yAdd = math.sin(entity.getLocation().getRotation()) * entity.getVelocity()
+		xAdd = math.cos(entity.getLocation().getRotation()) * entity.getVelocity()
+		xNew = entity.getLocation().getX() + xAdd
+		yNew = entity.getLocation().getY() + yAdd
+		if xNew <= entity.getMap().getArea()[0] and xNew >= 0 and yNew <= entity.getMap().getArea()[1] and yNew >= 0:
+			entity.getLocation().setPosition((xNew, yNew))
+		print("---------")
+		print(str(xAdd) + "|" + str(yAdd))
+		print(entity.getLocation().getPosition())
+		print("---------")
 
 	def getPosition(self, player):
 		return self.players[player]
@@ -39,6 +49,9 @@ class Map(object):
 		xPos = random.randint(half, self.area[0] - half)
 		yPos = random.randint(half, self.area[1] - half)
 		return (xPos, yPos)
+
+	def getArea(self):
+		return self.area
 
 	def toJSON(self):
 		#import pdb; pdb.set_trace()

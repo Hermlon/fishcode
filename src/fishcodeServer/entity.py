@@ -13,15 +13,7 @@ class Entity(SerializableMixin):
 		#self.texture = Texture(self.getSize())
 
 	def update(self):
-		yAdd = math.sin(self.getLocation().getRotation()) * self.getVelocity()
-		xAdd = math.cos(self.getLocation().getRotation()) * self.getVelocity()
-		xNew = self.getLocation().getX() + xAdd
-		yNew = self.getLocation().getY() + yAdd
-		self.getLocation().setPosition((xNew, yNew))
-		print("---------")
-		print(str(xAdd) + "|" + str(yAdd))
-		print(self.getLocation().getPosition())
-		print("---------")
+		pass
 
 	def setLocation(self, location):
 		self.location = location

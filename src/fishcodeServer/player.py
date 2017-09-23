@@ -15,7 +15,6 @@ class Player(Entity):
 		#decision = Code.update(self.code, self.name, self.getMap().toJSON())
 		#print(decision.getRotation())
 		#print(decision.isShoot())
-		super().update()
 
 	def setEnergy(self, energy):
 		self.energy = energy
