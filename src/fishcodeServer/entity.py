@@ -18,7 +18,10 @@ class Entity(SerializableMixin):
 		xNew = self.getLocation().getX() + xAdd
 		yNew = self.getLocation().getY() + yAdd
 		self.getLocation().setPosition((xNew, yNew))
+		print("---------")
+		print(str(xAdd) + "|" + str(yAdd))
 		print(self.getLocation().getPosition())
+		print("---------")
 
 	def setLocation(self, location):
 		self.location = location

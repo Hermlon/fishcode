@@ -28,6 +28,6 @@ class Location(object):
 
 	def getRotation(self):
 		return self.rotation
-		
+
 	def toSerializible(self):
 		return {"position":self.position, "rotation":self.rotation}
