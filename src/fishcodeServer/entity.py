@@ -12,6 +12,7 @@ class Entity(SerializableMixin):
 		#self.texture = Texture(self.getSize())
 
 	def update(self):
+		newx = self.getLocation().getX() + xadd
 		pass
 
 	def setLocation(self, location):
@@ -20,24 +21,12 @@ class Entity(SerializableMixin):
 	def getLocation(self):
 		return self.location
 
-	def setPosition(self, position):
-		self.location.setPosition(position)
-
-	def getPosition(self):
-		return self.location.getPosition()
-
-	def setRotation(self, rotation):
-		self.location.setRotation(rotation)
-
-	def getRotation(self):
-		return self.location.getRotation()
-
 	#Defined in units per tick, unit is defined by the size of the area and tick is always one, no matter how much real time passed
-	def setSpeed(self, speed):
-		self.speed = speed
+	def setVelocity(self, velocity):
+		self.velocity = velocity
 
-	def getSpeed(self):
-		return self.speed
+	def getVelocity(self):
+		return self.velocity
 
 	def setMap(self, myMap):
 		self.myMap = myMap
@@ -66,4 +55,4 @@ class Entity(SerializableMixin):
 
 	def toSerializible(self):
 		#return {"location":self.location.toSerializible(), "size":self.size, "texture":self.texture.toSerializible()}
-		return {"location":self.location.toSerializible(), "size":self.size}
+		return {"location":self.location.toSerializible(), "size":self.size, "velocity":self.velocity}
