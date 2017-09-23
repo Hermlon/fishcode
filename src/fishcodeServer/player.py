@@ -1,6 +1,7 @@
 #!/usr/bin/env/ python3
 from fishcodeServer.entity import Entity
 from fishcodeServer.code import Code
+from fishcodeServer.shot import Shot
 
 class Player(Entity):
 
@@ -8,6 +9,7 @@ class Player(Entity):
 		super().__init__(size)
 		self.name = name
 		self.shots = []
+		self.energy = 10
 		#self.texture.generateDefaultImg()
 		self.code = "playerdecision =  PlayerDecison(4, False)"
 
@@ -26,11 +28,12 @@ class Player(Entity):
 		return self.energy
 
 	def shoot(self):
-		shootLoseEnergy()
+		self.shootLoseEnergy()
 		newShot = Shot(self)
-		newShot.setPosition(self.getPosition())
-		newShot.setRotaion(self.getRotation())
-		self.shots.append()
+		newShot.setMap(self.getMap())
+		newShot.getLocation().setPosition(self.getLocation().getPosition())
+		newShot.getLocation().setRotation(self.getLocation().getRotation())
+		self.shots.append(newShot)
 
 	def removeShot(self, shot):
 		self.shots.remove(shot)
@@ -39,10 +42,12 @@ class Player(Entity):
 		return self.shots
 
 	def shootLoseEnergy(self):
-		self.setEnergy(self.getEnergy - 1)
+		self.setEnergy(self.getEnergy() - 1)
+		print("Player " + self.getName() + " shooted.")
 
 	def shootedLoseEnergy(self):
-		self.setEnergy(self.getEnergy - 1)
+		self.setEnergy(self.getEnergy() - 1)
+		print("Player " + self.getName() + " was shot.")
 
 	def setCode(self, code):
 		self.code = code
@@ -58,5 +63,5 @@ class Player(Entity):
 		def doSerializible(s):
 			return s.toSerializible()
 		shots = list(map(doSerializible, self.shots))
-		d.update({"name":self.name, "shots":self.shots})
+		d.update({"name":self.name, "shots":shots})
 		return d

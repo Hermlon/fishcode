@@ -10,10 +10,17 @@ class Map(object):
 
 	def tick(self):
 		self.maptime += 1
+
+		#This is a test
+		if self.maptime == 4:
+			self.players[0].shoot()
+
+
 		print(self.maptime)
 		for player in self.players:
 			player.update()
 			self.updatePosition(player)
+			print(player.getName() + ": " + str(player.getLocation().getPosition()))
 		for player in self.players:
 			self.updateShots(player)
 
@@ -37,15 +44,13 @@ class Map(object):
 			entity.getLocation().setPosition((xNew, yNew))
 		else:
 			return False
-		print("---------")
-		print(str(xAdd) + "|" + str(yAdd))
-		print(entity.getLocation().getPosition())
-		print("---------")
 		return True
 
 	def updateShots(self, player):
+		print("Shots of " + player.getName())
 		for shot in player.getShots():
-			if updatePosition(shot):
+			print("x: " + str(shot.getLocation().getPosition()))
+			if self.updatePosition(shot):
 				for p in self.players:
 					if shot.hitsEntity(p):
 						p.shootLoseEnergy()

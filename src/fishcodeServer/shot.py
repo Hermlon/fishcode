@@ -1,12 +1,12 @@
 #!/usr/bin/env/ python3
-import entity
+from fishcodeServer.entity import Entity
 
 class Shot(Entity):
 
-	shotsize = (2, 5)
+	shotsize = 40
 
 	def __init__(self, player):
-		super().__init__(shotsize)
+		super().__init__(self.shotsize)
 		self.player = player
 		self.setVelocity(1)
 
@@ -15,5 +15,5 @@ class Shot(Entity):
 
 	def toSerializible(self):
 		d = super().toSerializible()
-		d.update({"shotsize":shotsize})
+		d.update({"shotsize":self.getSize()})
 		return d
