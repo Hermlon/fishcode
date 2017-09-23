@@ -9,12 +9,15 @@ class Player(Entity):
 		self.name = name
 		self.shots = []
 		#self.texture.generateDefaultImg()
-		self.code = "return PlayerDecison(4, False)"
+		self.code = "playerdecision =  PlayerDecison(4, False)"
 
 	def update(self):
-		#decision = Code.update(self.code, self.name, self.getMap().toJSON())
-		#print(decision.getRotation())
-		#print(decision.isShoot())
+		decision = Code.update(self.code, self.name, self.getMap().toJSON())
+		print(decision.getRotation())
+		print(decision.isShoot())
+		self.getLocation().setRotation(decision.getRotation())
+		if decision.isShoot():
+			self.shoot()
 
 	def setEnergy(self, energy):
 		self.energy = energy
@@ -28,7 +31,6 @@ class Player(Entity):
 		newShot.setPosition(self.getPosition())
 		newShot.setRotaion(self.getRotation())
 		self.shots.append()
-		self.myMap.updateShot()
 
 	def removeShot(self, shot):
 		self.shots.remove(shot)
@@ -37,6 +39,9 @@ class Player(Entity):
 		return self.shots
 
 	def shootLoseEnergy(self):
+		self.setEnergy(self.getEnergy - 1)
+
+	def shootedLoseEnergy(self):
 		self.setEnergy(self.getEnergy - 1)
 
 	def setCode(self, code):

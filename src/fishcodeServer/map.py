@@ -1,26 +1,28 @@
 #!/usr/bin/env/ python3
-import random, json
+import random, json, math
 
 class Map(object):
 
 	def __init__(self, area):
 		self.area = area
-		self.entities = []
+		self.players = []
 		self.maptime = 0
 
 	def tick(self):
 		self.maptime += 1
 		print(self.maptime)
-		for entity in self.entities:
-			entity.update()
-			self.updatePosition(entity)
+		for player in self.players:
+			player.update()
+			self.updatePosition(player)
+		for player in self.players:
+			self.updateShots(player)
 
 	def addPlayer(self, player, pos=None):
 		if not pos:
 			pos = self.randPos(player)
 		player.setMap(self)
 		player.getLocation().setPosition(pos)
-		self.entities.append(player)
+		self.players.append(player)
 
 	def removePlayer(self, player):
 		self.players.setMap(None)
@@ -33,16 +35,25 @@ class Map(object):
 		yNew = entity.getLocation().getY() + yAdd
 		if xNew <= entity.getMap().getArea()[0] and xNew >= 0 and yNew <= entity.getMap().getArea()[1] and yNew >= 0:
 			entity.getLocation().setPosition((xNew, yNew))
+		else:
+			return False
 		print("---------")
 		print(str(xAdd) + "|" + str(yAdd))
 		print(entity.getLocation().getPosition())
 		print("---------")
+		return True
+
+	def updateShots(self, player):
+		for shot in player.getShots():
+			if updatePosition(shot):
+				for p in self.players:
+					if shot.hitsEntity(p):
+						p.shootLoseEnergy()
+			else:
+				player.removeShot(shot)
 
 	def getPosition(self, player):
 		return self.players[player]
-
-	def updateShot(self):
-		pass
 
 	def randPos(self, entity):
 		half = entity.getSize() / 2
@@ -60,5 +71,5 @@ class Map(object):
 	def toSerializible(self):
 		def doSerializible(s):
 			return s.toSerializible()
-		e = list(map(doSerializible, self.entities))
-		return {"area":self.area, "entities":e}
+		e = list(map(doSerializible, self.players))
+		return {"area":self.area, "players":e}

@@ -8,6 +8,7 @@ class Shot(Entity):
 	def __init__(self, player):
 		super().__init__(shotsize)
 		self.player = player
+		self.setVelocity(1)
 
 	def getPlayer(self):
 		return self.player

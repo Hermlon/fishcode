@@ -6,5 +6,6 @@ class Code(object):
     @staticmethod
     def update(code, playername, data):
         playerdecision = None
-        exec(code)
+        #exec(code)
+        playerdecision =  PlayerDecision(4, False)
         return playerdecision
